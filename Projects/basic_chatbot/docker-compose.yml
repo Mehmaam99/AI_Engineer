@@ -1,0 +1,12 @@
+services:
+  basic-chatbot:
+    build: .
+    volumes:
+      - .:/app
+      - /app/.venv
+    environment:
+      # Inject google api key from host .env
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    # Keep stdin open and allocate a pseudo-TTY for interactive input
+    stdin_open: true
+    tty: true
